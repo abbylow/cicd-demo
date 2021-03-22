@@ -1,9 +1,11 @@
 include:
+  - cicd/auto_test.yml
   - cicd/build_ci.yml
   - cicd/package_ci.yml
   - cicd/deploy_dev.yml
 
 stages:
+  - test
   - build
   - package
   - deploy
@@ -22,6 +24,13 @@ variables:
     paths:
       - dist/
     expire_in: 12 hours
+
+.base_test:
+  stage: test
+  tags:
+    - delly
+  allow_failure: false
+  when: manual
 
 .base_build:
   extends:

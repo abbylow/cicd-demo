@@ -1,0 +1,5 @@
+test:
+  extends:
+    - .base_test
+  script:
+    - yarn test
