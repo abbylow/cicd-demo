@@ -2,4 +2,4 @@ build:
   extends:
     - .base_build
   script:
-    - yarn
+    - yarn install

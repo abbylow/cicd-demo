@@ -22,7 +22,7 @@ variables:
 .base_test:
   stage: test
   tags:
-    - delly
+    - abby
   allow_failure: false
   when: manual
 
@@ -32,7 +32,7 @@ variables:
   image: node:12
   stage: build
   tags:
-    - delly
+    - abby
   allow_failure: false
   when: manual
 
@@ -41,7 +41,7 @@ variables:
     - .build_files_cache
   image: docker:19.03.13-dind
   tags:
-    - delly
+    - abby
   stage: package
   allow_failure: false
   when: on_success
