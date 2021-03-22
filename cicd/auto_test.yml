@@ -2,4 +2,5 @@ test:
   extends:
     - .base_test
   script:
-    - jest
+    - yarn install
+    - yarn test

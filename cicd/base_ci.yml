@@ -26,6 +26,7 @@ variables:
       - node_modules/
 
 .base_test:
+  image: node:12
   stage: test
   tags:
     - abby
