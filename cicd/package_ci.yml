@@ -1,4 +1,6 @@
 package:
+  before_script:
+    - docker login --username=$DOCKER_USERNAME -p $DOCKER_PW
   extends:
     - .base_package
   script:
