@@ -5,5 +5,3 @@ deploy-test:
     name: test/$BUILD_APP
   script:
     - ./run.bash $BUILD_APP 1 $REGISTRY_HOST/dellyliu/cicd-demo-$BUILD_APP:$CI_COMMIT_SHORT_SHA
-  rules:
-    - if: '$ENV == "test"'
