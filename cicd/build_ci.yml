@@ -2,7 +2,4 @@ build:
   extends:
     - .base_build
   script:
-    - yarn install
-    - nx rn $BUILD_APP:build:$ENV
-    - nx rn $BUILD_APP:cexport:$ENV
-    - ls -ltr dist/$ENV/apps/$BUILD_APP/exported
+    - yarn

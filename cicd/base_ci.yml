@@ -1,12 +1,12 @@
 include:
-  - cicd/auto_test.yml
   - cicd/build_ci.yml
+  - cicd/auto_test.yml
   - cicd/package_ci.yml
   - cicd/deploy_dev.yml
 
 stages:
-  - test
   - build
+  - test
   - package
   - deploy
 
@@ -19,12 +19,6 @@ variables:
     paths:
       - node_modules/
 
-.build_files_artifact:
-  artifacts:
-    paths:
-      - dist/
-    expire_in: 12 hours
-
 .base_test:
   stage: test
   tags:
@@ -35,13 +29,10 @@ variables:
 .base_build:
   extends:
     - .build_files_cache
-    - .build_files_artifact
   image: node:12
   stage: build
   tags:
     - delly
-  before_script:
-    - yarn global add nx
   allow_failure: false
   when: manual
 
