@@ -5,5 +5,3 @@ package:
     - docker build -t my-express-app:building .
     - docker tag my-express-app:building $REGISTRY_HOST/abby/cicd-demo:$CI_COMMIT_SHORT_SHA
     - docker push $REGISTRY_HOST/abby/cicd-demo:$CI_COMMIT_SHORT_SHA
-  dependencies:
-    - build
