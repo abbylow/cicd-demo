@@ -26,5 +26,6 @@ app.delete('/', (req, res) => {
 });
 
 app.listen(PORT, HOST);
+console.log('started app');
 
 module.exports = app;

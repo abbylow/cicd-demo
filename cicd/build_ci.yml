@@ -3,4 +3,4 @@ build:
     - .base_build
   script:
     - yarn install
-    - yarn start
+    - yarn build
