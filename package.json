@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest",
-    "build": "pkg server.js --output build/web"
+    "build": "pkg server.js --output dist"
   },
   "dependencies": {
     "express": "^4.16.1",
