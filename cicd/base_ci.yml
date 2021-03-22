@@ -1,0 +1,54 @@
+include:
+  - cicd/build_ci.yml
+  - cicd/package_ci.yml
+  - cicd/deploy_dev.yml
+
+stages:
+  - build
+  - package
+  - deploy
+
+variables:
+  REGISTRY_HOST: hub.docker.com
+
+.build_files_cache:
+  cache:
+    key: build_files
+    paths:
+      - node_modules/
+
+.build_files_artifact:
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 12 hours
+
+.base_build:
+  extends:
+    - .build_files_cache
+    - .build_files_artifact
+  image: node:12
+  stage: build
+  tags:
+    - delly
+  before_script:
+    - yarn global add nx
+  allow_failure: false
+  when: manual
+
+.base_package:
+  extends:
+    - .build_files_cache
+  image: docker:19.03.13-dind
+  tags:
+    - delly
+  stage: package
+  allow_failure: false
+  when: on_success
+
+.base_deploy:
+  image: hub.docker.com/hipay/gitlab-ci-base:buster
+  stage: deploy
+  before_script:
+    - chmod +x run.sh
+  allow_failure: false

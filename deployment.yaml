@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: CHANGE_APP_NAME
+  labels:
+    app: CHANGE_APP_NAME
+spec:
+  replicas: CHANGE_REPLICAS
+  selector:
+    matchLabels:
+      app: CHANGE_APP_NAME
+  template:
+    metadata:
+      labels:
+        app: CHANGE_APP_NAME
+    spec:
+      imagePullSecrets:
+        - name: harbor
+      containers:
+        - name: CHANGE_APP_NAME
+          image: CHANGE_APP_IMAGE
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: CHANGE_APP_NAME-svc
+  namespace: default
+spec:
+  selector:
+    app: CHANGE_APP_NAME
+  ports:
+    - protocol: TCP
+      targetPort: 80
+      port: 80
+  type: ClusterIP
+
