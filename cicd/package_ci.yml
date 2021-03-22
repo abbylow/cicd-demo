@@ -3,5 +3,5 @@ package:
     - .base_package
   script:
     - docker build -t my-express-app:building .
-    - docker tag my-express-app:building $REGISTRY_HOST/abby/cicd-demo:$CI_COMMIT_SHORT_SHA
+    - docker tag my-express-app:building abby/cicd-demo:$CI_COMMIT_SHORT_SHA
     - docker push abby/cicd-demo:$CI_COMMIT_SHORT_SHA
