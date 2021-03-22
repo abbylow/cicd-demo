@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest --forceExit",
-    "build": "pkg server.js --output dist"
+    "build": "pkg server.js --output dist/web"
   },
   "dependencies": {
     "express": "^4.16.1",

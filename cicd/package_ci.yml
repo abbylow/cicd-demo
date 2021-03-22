@@ -2,8 +2,8 @@ package:
   extends:
     - .base_package
   script:
-    - docker build --build-arg BUILD_APP=$BUILD_APP --build-arg -t $BUILD_APP:building .
-    - docker tag $BUILD_APP:building $REGISTRY_HOST/dellyliu/cicd-demo-$BUILD_APP:$CI_COMMIT_SHORT_SHA
-    - docker push $REGISTRY_HOST/dellyliu/cicd-demo-$BUILD_APP:$CI_COMMIT_SHORT_SHA
+    - docker build -t my-express-app:building .
+    - docker tag my-express-app:building $REGISTRY_HOST/abby/cicd-demo:$CI_COMMIT_SHORT_SHA
+    - docker push $REGISTRY_HOST/abby/cicd-demo:$CI_COMMIT_SHORT_SHA
   dependencies:
     - build

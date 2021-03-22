@@ -1,8 +1,6 @@
 deploy-test:
   extends:
     - .base_deploy
-  tags:
-    - delly
   environment:
     name: test/$BUILD_APP
   script:
