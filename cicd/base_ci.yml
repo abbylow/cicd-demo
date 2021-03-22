@@ -1,5 +1,4 @@
 include:
-  - cicd/build_ci.yml
   - cicd/auto_test.yml
   - cicd/package_ci.yml
   - cicd/deploy_dev.yml
