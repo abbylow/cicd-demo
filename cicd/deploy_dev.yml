@@ -4,4 +4,10 @@ deploy-test:
   environment:
     name: test/$BUILD_APP
   script:
-    - ./run.bash $BUILD_APP 1 $REGISTRY_HOST/dellyliu/cicd-demo-$BUILD_APP:$CI_COMMIT_SHORT_SHA
+#    Although the image can run kubectl command, cannot access the cluster w/o the configuration
+#    Thus, import the minikube config here
+    - mkdir ~/.kube
+    - cat $config > ~/.kube/config
+    - kubectl config current-context
+    - kubectl config get-clusters
+    - kubectl apply -f ./deployment.yaml
