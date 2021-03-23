@@ -6,6 +6,7 @@ deploy-test:
   script:
 #    Although the image can run kubectl command, cannot access the cluster w/o the configuration
 #    Thus, import the minikube config here
+#    the certificate in the machine was using filename; need to replace the path with encoded value
     - export KUBECONFIG=$config
     - kubectl config current-context
     - kubectl config get-clusters
