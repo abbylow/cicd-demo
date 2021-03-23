@@ -10,7 +10,7 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.get('/', (req, res) => {
-    return res.send('Received a GET HTTP method');
+    return res.send('Received a GET HTTP method v2');
 });
 
 app.post('/', (req, res) => {
