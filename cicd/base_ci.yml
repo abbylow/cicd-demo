@@ -51,7 +51,9 @@ variables:
   when: manual
 
 .base_deploy:
-  image: bitnami/kubectl
+  image:
+    name: bitnami/kubectl:1.14
+    entrypoint: [ "" ]
   stage: deploy
   allow_failure: false
   tags:
