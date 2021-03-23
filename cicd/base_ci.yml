@@ -48,7 +48,7 @@ variables:
     - abby
   stage: package
   allow_failure: false
-  when: manual
+  when: on_success
 
 .base_deploy:
   image:
@@ -56,5 +56,6 @@ variables:
     entrypoint: [ "" ]
   stage: deploy
   allow_failure: false
+  when: on_success
   tags:
     - abby
