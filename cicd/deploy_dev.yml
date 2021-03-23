@@ -6,8 +6,7 @@ deploy-test:
   script:
 #    Although the image can run kubectl command, cannot access the cluster w/o the configuration
 #    Thus, import the minikube config here
-    - mkdir ~/.kube
-    - cat $config > ~/.kube/config
+    - export KUBECONFIG=$config
     - kubectl config current-context
     - kubectl config get-clusters
     - kubectl apply -f ./deployment.yaml
