@@ -9,7 +9,7 @@ test:
   tags:
     - abby
   allow_failure: true
-  when: always
+  when: on_success
   script:
     - yarn install
     - yarn test
