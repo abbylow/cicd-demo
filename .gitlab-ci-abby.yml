@@ -1,0 +1,15 @@
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  image: node:12
+  stage: test
+  tags:
+    - abby
+  allow_failure: true
+  when: always
+  script:
+    - yarn install
+    - yarn test
