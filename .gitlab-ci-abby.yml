@@ -26,3 +26,17 @@ build:
     - docker build -t my-express-app:building .
     - docker tag my-express-app:building abbylow/cicd-demo:$CI_COMMIT_SHORT_SHA
     - docker push abbylow/cicd-demo:$CI_COMMIT_SHORT_SHA
+
+one-last-step:
+  image:
+    name: bitnami/kubectl:1.14
+    entrypoint: [ "" ]
+  stage: deploy
+  when: on_success
+  tags:
+    - abby
+  script:
+    - export KUBECONFIG=$config
+    - kubectl config current-context
+    - kubectl config get-clusters
+    - kubectl apply -f ./deployment.yaml
