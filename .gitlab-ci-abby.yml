@@ -40,3 +40,4 @@ one-last-step:
     - kubectl config current-context
     - kubectl config get-clusters
     - kubectl apply -f ./deployment.yaml
+    - kubectl rollout status deploy/cicd-demo
