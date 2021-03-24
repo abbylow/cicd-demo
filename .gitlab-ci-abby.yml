@@ -8,7 +8,7 @@ test:
   stage: test
   tags:
     - abby
-  allow_failure: true
+  allow_failure: false
   when: always
   script:
     - yarn install
