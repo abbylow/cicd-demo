@@ -3,16 +3,16 @@ stages:
   - build
   - deploy
 
-test:
-  image: node:12
-  stage: test
-  tags:
-    - abby
-  allow_failure: true
-  when: always
-  script:
-    - yarn install
-    - yarn test
+#test:
+#  image: node:12
+#  stage: test
+#  tags:
+#    - abby
+#  allow_failure: true
+#  when: always
+#  script:
+#    - yarn install
+#    - yarn test
 
 build:
   image: docker:19.03.13-dind
